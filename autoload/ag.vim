@@ -36,6 +36,11 @@ if !exists("g:ag_prg")
   endif
 endif
 
+" Use `cut` as the pager to truncate long lines if needed
+if g:ag_max_line_len
+  let g:ag_prg = g:ag_prg . " --pager 'cut -c1-" . g:ag_max_line_len . "'"
+endif
+
 if !exists("g:ag_apply_qmappings")
   let g:ag_apply_qmappings=1
 endif
